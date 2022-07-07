@@ -1,6 +1,6 @@
 import React from "react";
 import SideMenu from "../components/SideMenu";
-import AllProductsCard from "../components/AllProductsCard";
+import ProductsCard from "../components/ProductsCard";
 import { Box } from "@welcome-ui/box";
 import { Flex } from "@welcome-ui/flex";
 import Header from "../components/Header";
@@ -19,9 +19,9 @@ const AllProducts = () => {
       >
         <SideMenu />
         <Box mb="">
-          <AllProductsCard />
-          <AllProductsCard />
-          <AllProductsCard />
+          <ProductsCard />
+          <ProductsCard />
+          <ProductsCard />
         </Box>
       </Box>
     </Box>

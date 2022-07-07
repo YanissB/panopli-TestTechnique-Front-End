@@ -5,7 +5,7 @@ import { Text } from "@welcome-ui/text";
 import { Tag } from "@welcome-ui/tag";
 import { Flex } from "@welcome-ui/flex";
 
-const AllProductCards = () => {
+const ProductCards = () => {
   return (
     <Card
       maxWidth={400}
@@ -34,4 +34,4 @@ const AllProductCards = () => {
   );
 };
 
-export default AllProductCards;
+export default ProductCards;
