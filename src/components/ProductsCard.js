@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "@welcome-ui/card";
 import { Box } from "@welcome-ui/box";
 import { Text } from "@welcome-ui/text";
 import { Tag } from "@welcome-ui/tag";
-import { Flex } from "@welcome-ui/flex";
 
-const ProductCards = () => {
+const ProductCards = ({ furnitures }) => {
+  const [available, setAvailable] = useState(true);
+  console.log(furnitures.quantity);
+
+  useEffect(() => {
+    if (parseInt(furnitures.quantity) === 0) {
+      setAvailable(false);
+    }
+  });
+
+  console.log(furnitures.img.img1);
+
   return (
     <Card
       maxWidth={400}
       h={200}
-      backgroundImage="url('https://assets.reedpopcdn.com/animal-crossing-froggy-chair-how-to-unlock-8007-1635971837423.jpg/BROK/resize/690%3E/format/jpg/quality/75/animal-crossing-froggy-chair-how-to-unlock-8007-1635971837423.jpg')"
+      backgroundImage={`url(${furnitures.img.img1})`}
       display="flex"
       alignItems="flex-end"
     >
@@ -19,16 +29,14 @@ const ProductCards = () => {
         w="100%"
         background="linear-gradient(0deg, rgba(0,0, 0, 0.7) 0%, rgba(0,0,0,0) 100%)"
       >
-        <Flex
-          justify={{ xs: "center", md: "space-between" }}
-          align="center"
-          wrap="wrap"
-        >
-          <Text as="h4" fontWeight="bold" m={0} color="light.900">
-            Froggy Chair
-          </Text>
+        <Text as="h4" fontWeight="bold" m={0} color="light.900">
+          {furnitures.name}
+        </Text>
+        {available ? (
           <Tag variant="success">AVAILABLE</Tag>
-        </Flex>
+        ) : (
+          <Tag variant="warning">NOT AVAILABLE</Tag>
+        )}
       </Box>
     </Card>
   );
