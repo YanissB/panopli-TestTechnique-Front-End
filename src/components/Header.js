@@ -8,19 +8,25 @@ const Header = () => {
   return (
     <Box
       display="flex"
+      flex-flexWrap="wrap"
       flexDirection="row"
       justifyContent="space-between"
       backgroundColor="success.200"
       alignItems="center"
     >
-      <a href="/">
-        <img src={logo} alt="panopli's logo" />
-      </a>
+      <Box display="flex" justifyContent="flex-start">
+        <a href="/">
+          <img src={logo} alt="panopli's logo" />
+        </a>
 
-      <Text variant="h5">TEST TECHNIQUE</Text>
-      <Box marginLeft="50rem">
+        <Text variant="h5" paddingTop="1.5rem">
+          TEST <br />
+          TECHNIQUE
+        </Text>
+      </Box>
+      <Box paddingRight="2rem" paddingBottom="1.5rem">
         <a href="/cart">
-          <img src={cart} alt="cart icon" width="20%" />
+          <img src={cart} alt="cart icon" width="60" />
         </a>
       </Box>
     </Box>

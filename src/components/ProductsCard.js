@@ -4,11 +4,13 @@ import { Box } from "@welcome-ui/box";
 import { Text } from "@welcome-ui/text";
 import { Tag } from "@welcome-ui/tag";
 import { Modal, useModalState } from "@welcome-ui/modal";
+import { Swiper, useSwiper } from "@welcome-ui/swiper";
 import { Button } from "@welcome-ui/button";
 
 const ProductCards = ({ furnitures }) => {
   const [available, setAvailable] = useState(true);
   const modal = useModalState();
+  const swiper = useSwiper();
 
   useEffect(() => {
     if (parseInt(furnitures.quantity) === 0) {
@@ -49,8 +51,38 @@ const ProductCards = ({ furnitures }) => {
         </Modal.Trigger>
         <Modal {...modal} ariaLabel="example">
           <Modal.Content>
-            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien
-            ligula, rutrum quis aliquam nec, convallis sit amet erat. Mauris
+            {" "}
+            <Box display="flex">
+              <Box paddingRight="1rem">
+                <Swiper h={400} w={500} {...swiper}>
+                  <Swiper.Slide textAlign="center">
+                    <img
+                      style={{ maxWidth: "100%", maxHeight: "100%" }}
+                      src={furnitures.img.img1}
+                    />
+                  </Swiper.Slide>
+                  <Swiper.Slide textAlign="center">
+                    <img
+                      style={{ maxWidth: "100%", maxHeight: "100%" }}
+                      src={furnitures.img.img2}
+                    />
+                  </Swiper.Slide>
+                </Swiper>
+              </Box>
+              <Box>
+                <Text variant="body1" w="10rem">
+                  {furnitures.name} <br /> <br />
+                  Colors: {furnitures.colors.join(", ")} <br />
+                  <br />
+                  Height: {furnitures.dimensions.height} <br />
+                  Length: {furnitures.dimensions.length} <br />
+                  Width: {furnitures.dimensions.width} <br />
+                  <br />
+                  Supplier: {furnitures.supplier}
+                </Text>
+                <Button>Add to cart</Button>
+              </Box>
+            </Box>
           </Modal.Content>
         </Modal>
       </Box>
