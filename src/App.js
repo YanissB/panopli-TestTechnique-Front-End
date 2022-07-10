@@ -1,23 +1,22 @@
 import React from "react";
-import { createTheme, WuiProvider } from "@welcome-ui/core";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AllProducts from "./pages/AllProducts";
-
-const theme = createTheme({
-  colors: {
-    success: {
-      100: "#E6FAE7",
-      200: "#7EC784",
-      500: "#52B45A",
-      700: "#2F9237",
-    },
-  },
-});
+import Cart from "./pages/Cart";
+import Header from "./components/Header";
+import { Stack } from "@welcome-ui/stack";
 
 const App = () => {
   return (
-    <WuiProvider theme={theme}>
-      <AllProducts />
-    </WuiProvider>
+    <Stack>
+      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AllProducts />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </BrowserRouter>
+      <Header />
+    </Stack>
   );
 };
 

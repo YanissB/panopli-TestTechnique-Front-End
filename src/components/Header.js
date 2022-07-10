@@ -1,17 +1,28 @@
-import { Box } from "@welcome-ui/box";
 import React from "react";
 import logo from "../assets/logo-panopli.png";
+import cart from "../assets/cartIcon.png";
+import { Box } from "@welcome-ui/box";
+import { Text } from "@welcome-ui/text";
 
 const Header = () => {
   return (
     <Box
-      flex-direction="flex-start"
+      display="flex"
+      flexDirection="row"
       justifyContent="space-between"
       backgroundColor="success.200"
-      w="100%"
+      alignItems="center"
     >
-      <img src={logo} alt="logo panopli" />
-      <h1>TEST TECHNIQUE</h1>
+      <a href="/">
+        <img src={logo} alt="panopli's logo" />
+      </a>
+
+      <Text variant="h5">TEST TECHNIQUE</Text>
+      <Box marginLeft="50rem">
+        <a href="/cart">
+          <img src={cart} alt="cart icon" width="20%" />
+        </a>
+      </Box>
     </Box>
   );
 };
