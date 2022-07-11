@@ -4,6 +4,7 @@ import AllProducts from "./pages/AllProducts";
 import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import { Stack } from "@welcome-ui/stack";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
-      <Header />
+      <Footer />
     </Stack>
   );
 };
